@@ -1,0 +1,40 @@
+{% extends 'nature_club/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<br/>
+{% if messages %}
+{% for message in messages %}
+<div style="margin-top:5rem;" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">{{ message }}
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+{% endfor %}
+{% endif %}
+<h2>Write A Comment</h2>
+        <form action="#" method="post">
+          {% csrf_token %}
+          <div class="one_third first">
+            <label for="name">Phone<span>*</span></label>
+            <input type="text" name="Phone" id="name" value="" size="22" required>
+          </div>
+          <div class="one_third">
+            <label for="email">Email <span>*</span></label>
+            <input type="email" name="Email" id="email" value="" size="22" required>
+          </div>
+          <div class="one_third">
+            <label for="text">Subject</label>
+            <input type="text" name="Subject" id="url" value="" size="22">
+          </div>
+          <div class="block clear">
+            <label for="comment">Message</label>
+            <textarea name="Message" id="comment" cols="25" rows="10"></textarea>
+          </div>
+          <div>
+            <input type="submit" name="submit" value="Submit Form">
+        </form>
+
+{% endblock %}

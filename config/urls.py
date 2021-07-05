@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
+from django.conf import settings
 
 from accounts import views, AdminView, MemberView
 from config import settings
@@ -36,4 +37,10 @@ urlpatterns = [
 
     path('signup_member',views.signup_member,name="signup_member"),
     path('do_member_signup',views.do_member_signup,name="do_member_signup"),
-]
+
+    #ppppppppppppp
+    path('nature_club/', include('nature_club.urls')),
+    path('blogs/', include('blog.urls')),
+
+
+] + static(settings.STATIC_URL, documents=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
