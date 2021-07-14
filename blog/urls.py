@@ -10,4 +10,5 @@ urlpatterns = [
 #     path('', views.PostList.as_view(), name='PostList'),
     path('',views.PostList.as_view(), name='PostList'),
     path('<str:slug>/', views.PostDetail, name='post_detail'),
+    path('Search', search, name='Search'),
 ]

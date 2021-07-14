@@ -1,0 +1,68 @@
+
+{% extends 'nature_club/base.html' %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        /* background-color: #fdfdfd; */
+        background-color: green;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+<div class="breadcrumbs">
+    <div class="container">
+        <a href="{% url 'NATURE_CLUB:Home' %}">Home</a> &rarr;
+        <a href="{% url 'BLOG:PostList' %}">Blogs</a>
+    </div>
+</div>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-1 mt-3 text-white"> Welcome to our awesome Blog </h3>
+                    <p class="text-light">We Love Informing you As much as you do..! &nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% if Find %}
+
+
+            {% for search in Find %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ search.title }}</h2>
+                    <p class="card-text text-muted h6">{{ search.author }} | {{ search.created_on}} </p>
+                    <p class="card-text">{{search.content|slice:":200" }}</p>
+                    <a href="{% url 'BLOG:post_detail' search.slug  %}" class="btn btn-success">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% else %}
+
+            <center><marquee><h1 style="color: red; border-radius:4px;">Search key not Available!</h1></marquee></center>
+
+            {% endif %}
+        </div>
+        {% block sidebar %} {% include 'nature_club/sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+{% endblock %}

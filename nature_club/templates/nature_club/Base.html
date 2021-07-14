@@ -12,7 +12,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
-<title>Nocobot</title>
+<title>Nature_Club</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
@@ -33,6 +33,19 @@ Licence URI: https://www.os-templates.com/template-terms
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
   rel="stylesheet"
 />
+
+<!--  -->
+
+<style>
+  body {
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      /* background-color: #fdfdfd; */
+      background-color: green;
+      color: white;
+  }
+</style>
+
 </head>
 <body >
 
@@ -42,26 +55,29 @@ Licence URI: https://www.os-templates.com/template-terms
             <!-- ################################################################################################ -->
             <ul class="nospace">
               <li><i class="fas fa-phone rgtspace-5"></i> +254 746 179 393</li>
-              <li><i class="far fa-envelope rgtspace-5"></i> info@domain.com</li>
+              <li><i class="far fa-envelope rgtspace-5"></i> natureclub@gmail.com</li>
             </ul>
             <!-- ################################################################################################ -->
           </div>
           <div class="fl_right"> 
             <!-- ################################################################################################ -->
             <ul class="nospace">
-              <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-              <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+              <li><a href="#" title="Login">LOGIN <i class="fas fa-sign-in-alt"></i></a></li>
+              <li><a href="#" title="Sign Up">SIGN_UP <i class="fas fa-edit"></i></a></li>
+
               <li id="searchform">
                 <div>
-                  <form action="#" method="post">
+                  <form action="{% url 'BLOG:Search' %}" method="POST">
+                    {% csrf_token %}
                     <fieldset>
-                      <legend>Quick Search:</legend>
-                      <input type="text" placeholder="Enter search term&hellip;">
+                      <legend>Search Articles:</legend>
+                      <input type="text" name="search" placeholder="Search Articles Here&hellip;">
                       <button type="submit"><i class="fas fa-search"></i></button>
                     </fieldset>
                   </form>
                 </div>
               </li>
+              
             </ul>
             <!-- ################################################################################################ -->
           </div>
@@ -77,26 +93,27 @@ Licence URI: https://www.os-templates.com/template-terms
           <header id="header" class="hoc clear">
             <div id="logo" class="fl_left"> 
               <!-- ################################################################################################ -->
-              <h1><a href="index.html">Nature Club</a></h1>
+              
               <!-- ################################################################################################ -->
             </div>
             <nav id="mainav" class="fl_right"> 
               <!-- ################################################################################################ -->
               <ul class="clear">
-                <li class="active"><a href="{% url 'NATURE_CLUB:Home' %}">Home</a></li>
+                <img style="width: 10%;  border-radius:5px;" src="{% static 'images/demo/logo1.jpg' %}" alt="">
+                <li style="margin-left: 45%;" class="active"><a href="{% url 'NATURE_CLUB:Home' %}">Home</a></li>
                 <li><a class="drop" href="#">Pages</a>
                   <ul>
                     <li><a href="{% url 'NATURE_CLUB:About' %}">About</a></li>                    
                     <li><a href="{% url 'NATURE_CLUB:Contact' %}">Contacts</a></li>
                     <li><a href="{% url 'NATURE_CLUB:Events' %}">Events</a></li>
                     <li><a href="{% url 'NATURE_CLUB:Gallery' %}">Gallery</a></li>
-                    <li><a href="blogs">Blogs</a></li>
+                    <li><a href="{% url 'BLOG:PostList' %}">Blogs</a></li>
                   </ul>
                 </li>
                 
-                <li><a href="#">Link Text</a></li>
-                <li><a href="#">Link Text</a></li>
-                <li><a href="#">Link Text</a></li>
+                <li><a href="{% url 'NATURE_CLUB:Subcom1' %}">SubCom1</a></li>
+                <li><a href="{% url 'NATURE_CLUB:Subcom2' %}">SubCom2</a></li>
+                <li><a href="{% url 'NATURE_CLUB:Subcom3' %}">SubCom3</a></li>
               </ul>
               <!-- ################################################################################################ -->
             </nav>
@@ -108,7 +125,7 @@ Licence URI: https://www.os-templates.com/template-terms
     {% endblock %}
 
 
-    <div class="bgded overlay row4" style="background-image:url('images/demo/backgrounds/01.png');">
+    <div class="bgded overlay row4" style="background-color:darkgreen;">
         <footer id="footer" class="hoc clear"> 
           <!-- ################################################################################################ -->
           <div class="one_quarter first">
@@ -154,15 +171,15 @@ Licence URI: https://www.os-templates.com/template-terms
           <div class="one_quarter">
             <h6 class="heading">Lacinia iaculis nunc</h6>
             <ul class="nospace clear latestimg">
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-              <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
+              <li><a class="imgover" href="#"><img src="{% static 'images/demo/01.jpg' %}" alt=""></a></li>
             </ul>
           </div>
           <!-- ################################################################################################ -->

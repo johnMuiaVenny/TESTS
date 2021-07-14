@@ -4,11 +4,6 @@ from django.db.models.manager import ManagerDescriptor
 
 # Create your models here.
 
-
-class Articles(models.Model):
-    Articla_name = models.CharField(max_length=100)
-
-
 class Gallery(models.Model):
     Images = models.FileField(upload_to= 'gallery')
 

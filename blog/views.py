@@ -3,8 +3,10 @@ from django.shortcuts import render,get_object_or_404
 from django.views import generic
 # from django.views.generic import *
 #from django.views.generic.edit import CreateView
+from django.contrib import messages
 from .models import *
 from .forms import *
+from django.db.models import Q
 
 class PostList(generic.ListView):
     model = Post
@@ -34,4 +36,13 @@ def contact(request):
 			messages.success(request, f"Your message has been sent.Thanks for visiting our site!")
 	else:
 		form = ContactForm()
-	return render(request,'contact.html',{'form': form})
+	return render(request,'blog/contact.html',{'form': form})
+
+
+#search
+
+def search(request):
+	if request.method == "POST":
+		Find = Post.objects.filter(Q(title=request.POST['search']) | Q(content__icontains=request.POST['search']))
+		return render(request, 'blog/searched.html', {'Find':Find})
+

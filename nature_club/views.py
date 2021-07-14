@@ -34,5 +34,19 @@ def events(request):
 def gallery(request):
     images = Gallery.objects.all()
     return render(request, 'nature_club/Gallery.html', {'images':images})
+
+#SUBCOMMITTEE
+
+def Subcom1(request):
+    return render(request, 'nature_club/subcom1.html')
+
+def Subcom2(request):
+    return render(request, 'nature_club/subcom2.html')
+
+def Subcom3(request):
+    return render(request, 'nature_club/subcom3.html')
+
+
+
    
         

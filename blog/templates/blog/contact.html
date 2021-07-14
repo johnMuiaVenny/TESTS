@@ -1,6 +1,75 @@
 
 {% extends 'nature_club/base.html' %}
 {% block content %}
+<style>
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        text-shadow: 2px 2px 5px blue;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+      }
+
+      input[type="submit"] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        text-shadow: 2px 2px 5px blue;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        margin-left: 23%;
+      }
+
+      input[type="submit"]:hover{
+        background-color: purple;
+      }
+
+      input[type="email"]:focus{
+        border: 2px solid purple;
+        outline: purple;
+    }
+
+    input[type="text"]:focus{
+        border: 2px solid purple;
+        outline: purple;
+    }
+
+    #textarea:focus{
+        border: 2px solid purple;
+        outline: purple;
+    }
+      
+      #textarea{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        text-shadow: 2px 2px 5px blue;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        color: black;
+      }
+
+      input[type=email] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        text-shadow: 2px 2px 5px blue;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+      }
+
+</style>
+
 <main class="content">
     <div class="breadcrumbs">
         <div class="container">
@@ -23,17 +92,17 @@
                         </address>
                     </div>
                     <div class="col-md-9">
-                        <h1 class="wow fadeInRight">Contact Form</h1>
+                        <h1 class="wow fadeInRight">Contact Us</h1>
                         <form action="#">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <p class="wow fadeInRight"><input type="text" name="name" placeholder="Your name..."></p>
-                                    <p class="wow fadeInRight"><input type="email" name="email"  placeholder="Email..."></p>
-                                    <p class="wow fadeInRight"><input type="text" name="subject" placeholder="Subject..."></p>
+                                    <p class="wow fadeInRight"><input style="color: black;"  type="text" name="name" placeholder="Your name..."></p>
+                                    <p class="wow fadeInRight"><input style="color: black;" type="email" name="email"  placeholder="Email..."></p>
                                 </div>
-                                <div class="col-md-8">
-                                    <p class="wow fadeInRight"><textarea name="message" id=""></textarea></p>
-                                    <input type="submit" class="button pull-right wow fadeInRight" value="Send Messages">
+                                <div class="col-md-5">
+                                    <p class="wow fadeInRight"><input style="color: black;" type="text" name="subject" placeholder="Subject..."></p>
+                                    <p ><textarea id='textarea' placeholder="Message" name="message"></textarea></p>
+                                    <input style="color: black;" type="submit" class="button pull-right wow fadeInRight" value="Send Messages">
                                 </div>
                             </div>
                         </form>
